@@ -268,13 +268,13 @@ int res_create_multi_display_surface(const char* name, int* frames, int* fps,
         printf("  found fps = %d\n", *fps);
     }
 
-    if (frames <= 0 || fps <= 0) {
+    if (*frames <= 0 || *fps <= 0) {
         printf("bad number of frames (%d) and/or FPS (%d)\n", *frames, *fps);
         result = -10;
         goto exit;
     }
 
-    if (height % *frames != 0) {
+    if ((height % *frames) != 0) {
         printf("bad height (%d) for frame count (%d)\n", height, *frames);
         result = -9;
         goto exit;
